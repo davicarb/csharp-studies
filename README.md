@@ -1,0 +1,3 @@
+## repositório específico para exercícios de programação orientada a objetos no csharp no console.
+o objetivo desse repositório é ter uma codebase pessoal onde tenho diversos códigos que produzi ao longo do aprendizado para tirar dúvidas ao longo do tempo.
+é natural que os exercícios comecem mais fáceis, e depois vão ficando mais difíceis. contando também que estou no 1º período da graduação ainda...
