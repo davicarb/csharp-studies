@@ -6,37 +6,34 @@ namespace SisProduto
 
     private decimal _preco;
     private int _estoque;
-    public string Nome {get; set
-      {
-        if (value.Length > 30)
-        {
-          System.Console.WriteLine("nome inválido.");
-          return;
-        }
-        _nome = value;
-      }
-    }
-    public decimal Preco {get; set
-      {
-        if (value < 1)
-        {
-          System.Console.WriteLine("preço inválido.");
-          return;
-        }
-        _preco = value;
-      }
-    }
-    public int Estoque {get; set
-      {
-        if (value < 1)
-        {
-          System.Console.WriteLine("quantidade inválida.");
-          return;
-        }
-        _estoque = value;
-      }
-    }
+    public string Nome { get { return _nome; } }
+    public decimal Preco { get { return _preco; } }
+    public int Estoque { get { return _estoque; } }
 
+    public Produto(string nome, decimal preco, int quantidade)
+    {
+      if (string.IsNullOrEmpty(nome))
+      {
+        System.Console.WriteLine("nome inválido.");
+        return;
+      }
+
+      if (preco < 0)
+      {
+        System.Console.WriteLine("preço inválido.");
+        return;
+      }
+
+      if (quantidade < 0)
+      {
+        System.Console.WriteLine("quantidade invalida.");
+        return;
+      }
+
+      _nome = nome;
+      _preco = preco;
+      _estoque = quantidade;
+    }
     public void AdicionarEstoque(int quantidade)
     {
       //adiciona ao estoque (quantidade deve ser positiva)
