@@ -8,7 +8,11 @@ namespace SisProduto
     private int _estoque;
     public string Nome { get { return _nome; } }
     public decimal Preco { get { return _preco; } }
-    public int Estoque { get { return _estoque; } }
+    public int Estoque
+    {
+      get { return _estoque; }
+      private set { _estoque = value; }
+    }
 
     public Produto(string nome, decimal preco, int quantidade)
     {
