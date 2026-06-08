@@ -1,4 +1,4 @@
-## multi-banking - csharp console project fintech project ##
+## multi-banking - console fintech ##
 
 * o programa foi construído utilizando a linguagem C# com o ecossistema de desenvolvimento dotnet.
 o objetivo do programa foi aprender mais sobre a funcionalidade da herança e encapsulamento.
