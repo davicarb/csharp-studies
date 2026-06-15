@@ -1,4 +1,5 @@
 using Microsoft.Data.Sqlite;
+using BCrypt.Net;
 
 namespace MultiBanking
 {
@@ -9,18 +10,18 @@ namespace MultiBanking
       Console.Clear();
       System.Console.WriteLine("=== cadastro de contas no multi-banking ===");
       System.Console.WriteLine("nome do titular da conta: ");
-      string nome = Console.ReadLine() ?? "";
+      string nome = Console.ReadLine();
 
       while (nome == null)
       {
         System.Console.WriteLine("nome de usuário inválido.");
         System.Console.WriteLine("tente novamente: ");
-        nome = Console.ReadLine() ?? "";
+        nome = Console.ReadLine();
       }
 
       System.Console.WriteLine("crie uma senha para sua conta (mínimo 7 caracteres): ");
 
-      string senha = Console.ReadLine() ?? "";
+      string senha = Console.ReadLine();
 
       while (senha == null)
       {
@@ -28,6 +29,8 @@ namespace MultiBanking
         System.Console.WriteLine("tente novamente: ");
         senha = Console.ReadLine() ?? "";
       }
+
+      string senhaHash = BCrypt.Net.BCrypt.HashPassword(senha);
 
       System.Console.WriteLine("insira o tipo da conta que quer criar (1, 2 ou 3): ");
       System.Console.WriteLine("1. Conta bronze (Limite inicial de R$1500,00 de crédito, anuidade: R$ 0)");
@@ -65,7 +68,7 @@ namespace MultiBanking
       command.CommandText = @"INSERT INTO Contas (Titular, Senha, TipoConta, Saldo)
       VALUES ($u, $s, $t, 0)";
       command.Parameters.AddWithValue("$u", nome);
-      command.Parameters.AddWithValue("$s", senha);
+      command.Parameters.AddWithValue("$s", senhaHash);
       command.Parameters.AddWithValue("$t", tipoConta);
 
       command.ExecuteNonQuery();

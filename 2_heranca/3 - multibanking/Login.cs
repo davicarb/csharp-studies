@@ -1,4 +1,5 @@
 using Microsoft.Data.Sqlite;
+using BCrypt.Net;
 
 namespace MultiBanking
 {
@@ -17,9 +18,8 @@ namespace MultiBanking
       connection.Open();
       var command = connection.CreateCommand();
 
-      command.CommandText = @"SELECT Id, TipoConta, Saldo FROM Contas WHERE Titular = $u AND Senha = $s";
+      command.CommandText = @"SELECT Id, TipoConta, Saldo, Senha FROM Contas WHERE Titular = $u";
       command.Parameters.AddWithValue("$u", nome);
-      command.Parameters.AddWithValue("$s", senha);
 
       using (var reader = command.ExecuteReader())
       {
@@ -28,6 +28,14 @@ namespace MultiBanking
           int id = reader.GetInt32(reader.GetOrdinal("Id"));
           string tipo = reader.GetString(reader.GetOrdinal("TipoConta"));
           decimal saldoBanco = reader.GetDecimal(reader.GetOrdinal("Saldo"));
+          string hashArmazenado = reader.GetString(reader.GetOrdinal("Senha"));
+
+          bool senhaValida = BCrypt.Net.BCrypt.Verify(senha, hashArmazenado);
+
+          if (!senhaValida)
+          {
+            return null;
+          }
 
           return tipo switch
           {
