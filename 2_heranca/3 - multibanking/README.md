@@ -50,5 +50,8 @@ dotnet run
 
 ## 🔮 próximos passos
 
-- Hashing de senhas no database
+- Hashing de senhas no database - Adicionado.
+O hashing adiciona uma camada extra de segurança na aplicação.
+Utilizei a biblioteca BCrypt.Net, que faz automaticamente todo o processo de hashing das senhas, aonde só preciso chamar os métodos dentro do código e ele já faz as comparações por conta própria.
+
 - Compras de produtos utilizando o limite de crédito
