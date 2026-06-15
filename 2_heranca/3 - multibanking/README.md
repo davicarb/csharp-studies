@@ -1,31 +1,54 @@
-## multi-banking - csharp console project fintech project ##
+# 🏦 MultiBanking — Console Fintech
 
-* o programa foi construído utilizando a linguagem C# com o ecossistema de desenvolvimento dotnet.
-o objetivo do programa foi aprender mais sobre a funcionalidade da herança e encapsulamento.
-(portanto o exercício é mais focado em herança, apesar de também possuir funcionalidades do encapsulamento).
+> Sistema de fintech em console desenvolvido com **C#** e **.NET**, focado na prática de **herança** e **encapsulamento**.
 
-* para o database foi utilizado:
-  - ado.net;
-  - dbbrowser for SQLITE.
+---
 
-* este foi provavelmente o ultimo projeto console que desenvolvi utilizando ado.net, por se tratar de uma ferramenta
-um pouco datada e muito low-level. futuramente meus projetos contarão com o Entity Framework ou Dapper.
+## 📌 Sobre o projeto
 
-a ideia do projeto era ser desenvolvido um sistema de fintech que conta com três tipos de conta:
-  -> Bronze;
-  -> Prata;
-  -> Ouro.
+O programa foi construído utilizando a linguagem C# com o ecossistema de desenvolvimento .NET.
+O objetivo foi aprender mais sobre a funcionalidade da herança e encapsulamento — portanto o exercício é mais focado em herança, apesar de também possuir funcionalidades do encapsulamento.
 
-* cada conta herda de uma classe base chamada ContaBancaria. logo, herdam campos, propriedades e métodos desta, como está
-descrito no *Classes.cs*.
-apesar de herdarem os campos da classe base, cada uma possuem suas próprias características, como limite de conta, e taxa
-de anuidade.
+O sistema conta com **três tipos de conta**:
 
-* separei os métodos em arquivos para facilitar a evolução do projeto ao longo do tempo.
-(apesar de se tratar de um projeto console, planejo implementar mais funcionalidades nele, como hashing das senhas no database
-e também compras de produtos utilizando o limite de crédito.)
+| Tier | Conta |
+|------|-------|
+| 🥉 | Bronze |
+| 🥈 | Prata |
+| 🥇 | Ouro |
 
-## como rodar o projeto ##
-1. adicione todos os arquivos que estão no repositório numa pasta do seu computador;
-2. abra o vscode;
-3. abra um novo terminal e digite: *dotnet run*
+Cada conta herda de uma classe base chamada `ContaBancaria`, herdando seus campos, propriedades e métodos — conforme descrito em `Classes.cs`. Apesar disso, cada uma possui suas próprias características, como **limite de conta** e **taxa de anuidade**.
+
+---
+
+## 🗄️ Database
+
+- **ADO.NET** — acesso e manipulação de dados
+- **DB Browser for SQLite** — visualização e gerenciamento do banco
+
+> Este foi provavelmente o último projeto console desenvolvido com ADO.NET, por se tratar de uma ferramenta um pouco datada e muito _low-level_. Futuramente os projetos contarão com **Entity Framework** ou **Dapper**.
+
+---
+
+## 🗂️ Estrutura
+
+Os métodos foram separados em arquivos distintos para facilitar a evolução do projeto ao longo do tempo.
+
+---
+
+## 🚀 Como rodar
+
+1. Adicione todos os arquivos do repositório numa pasta do seu computador
+2. Abra o **VS Code**
+3. Abra um novo terminal e execute:
+
+```bash
+dotnet run
+```
+
+---
+
+## 🔮 próximos passos
+
+- Hashing de senhas no database
+- Compras de produtos utilizando o limite de crédito
